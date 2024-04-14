@@ -12,4 +12,4 @@ Excited to unveil my latest Flutter project: sleek and dynamic animated auth scr
 Live Preview: [Click Here](https://tusharhow.github.io/animated-auth)
 
 ## Video Preview
-https://github.com/tusharhow/animated-auth/assets/65107679/dbabae81-fc17-4088-af9e-722bda48dbd9
+https://github.com/tusharhow/animated-auth/assets/65107679/84b59fe3-1abd-459a-947c-bc1247c853b8
