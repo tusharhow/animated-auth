@@ -1,3 +1,4 @@
+import 'package:animated_auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 class RegisterWidget extends StatelessWidget {
@@ -5,9 +6,11 @@ class RegisterWidget extends StatelessWidget {
     super.key,
     required this.size,
     required this.isLogin,
+    required this.authController,
   });
   final bool isLogin;
   final Size size;
+  final AuthController authController;
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(
@@ -101,6 +104,7 @@ class RegisterWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.registernNameController,
               decoration: InputDecoration(
                 hintText: 'Enter your name',
                 hintStyle: const TextStyle(
@@ -125,6 +129,7 @@ class RegisterWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.registerEmailController,
               decoration: InputDecoration(
                 hintText: 'Enter your email',
                 hintStyle: const TextStyle(
@@ -149,6 +154,7 @@ class RegisterWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.registerPasswordController,
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 hintStyle: const TextStyle(
@@ -181,6 +187,7 @@ class RegisterWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.registerConfirmPasswordController,
               decoration: InputDecoration(
                 hintText: 'Confirm password',
                 hintStyle: const TextStyle(
@@ -213,7 +220,9 @@ class RegisterWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                authController.toggleLogin();
+              },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -230,7 +239,9 @@ class RegisterWidget extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             const Text('Already have an account?'),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                authController.toggleLogin();
+              },
               child: const Text('Login'),
             ),
           ]),

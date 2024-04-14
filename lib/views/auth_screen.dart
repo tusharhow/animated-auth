@@ -35,12 +35,18 @@ class AuthScreen extends StatelessWidget {
                         Consumer<AuthController>(
                             builder: (context, authController, child) {
                           return RegisterWidget(
-                              size: size, isLogin: authController.isLogin);
+                            size: size,
+                            isLogin: authController.isLogin,
+                            authController: authController,
+                          );
                         }),
                         Consumer<AuthController>(
                             builder: (context, authController, child) {
                           return LoginWidget(
-                              size: size, isLogin: authController.isLogin);
+                            size: size,
+                            isLogin: authController.isLogin,
+                            authController: authController,
+                          );
                         }),
                       ]),
                 )),

@@ -1,3 +1,4 @@
+import 'package:animated_auth/controller/auth_controller.dart';
 import 'package:flutter/material.dart';
 
 class LoginWidget extends StatelessWidget {
@@ -5,9 +6,12 @@ class LoginWidget extends StatelessWidget {
     super.key,
     required this.size,
     required this.isLogin,
+    required this.authController,
+
   });
   final bool isLogin;
   final Size size;
+  final AuthController authController ;
   @override
   Widget build(BuildContext context) {
     return AnimatedOpacity(
@@ -102,6 +106,7 @@ class LoginWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.loginEmailController,
               decoration: InputDecoration(
                 hintText: 'Enter your email',
                 hintStyle: const TextStyle(
@@ -126,6 +131,7 @@ class LoginWidget extends StatelessWidget {
             width: size.width * 0.2,
             height: 55,
             child: TextField(
+              controller: authController.loginPasswordController,
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 hintStyle: const TextStyle(
@@ -175,7 +181,9 @@ class LoginWidget extends StatelessWidget {
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             const Text('Don\'t have an account?'),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                authController.toggleLogin();
+              },
               child: const Text('Register'),
             ),
           ]),
