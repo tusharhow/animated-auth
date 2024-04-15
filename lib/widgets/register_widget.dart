@@ -155,6 +155,9 @@ class RegisterWidget extends StatelessWidget {
             height: 55,
             child: TextField(
               controller: authController.registerPasswordController,
+           onChanged: (value) {
+             
+           },
               decoration: InputDecoration(
                 hintText: 'Enter your password',
                 hintStyle: const TextStyle(
